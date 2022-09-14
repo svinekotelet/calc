@@ -5,7 +5,29 @@ const div = (x,y) => x / y;
 
 const operate = (x,y,oper) => oper(x,y);
 
-console.log(operate(100,2122,add));
-console.log(operate(33333,11111,sub));
-console.log(operate(12,14,mult));
-console.log(operate(812,4,div));
+function evalInput(str) {
+    operRegex = /\+|\-|\*|\//;
+    const operIndex = str.search(operRegex);
+    const oper = str[operIndex];
+    const firstNum = parseInt(str.split('').slice(0,operIndex).join(''));
+    const secondNum = parseInt(str.split('').slice(operIndex + 1).join(''));
+
+    switch (oper) {
+        case "+":
+            return operate(firstNum, secondNum, add);
+            break;
+        case "-":
+            return operate(firstNum, secondNum, sub);
+            break;
+        case "*":
+            return operate(firstNum, secondNum, mult);
+            break;
+        case "/":
+            return operate(firstNum, secondNum, div);
+            break; 
+        default:
+            return "ERROR";
+    }
+}
+
+console.log(evalInput("12/30"));
