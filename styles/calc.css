@@ -1,0 +1,32 @@
+.wrapper {
+    display: flex;
+    height: 95vh;
+    justify-content:center;
+    align-items: center;
+}
+
+#calcBody {
+    display: grid;
+    height: 675px;
+    width: 500px;
+    border-style: solid;
+    border-width: 2px;
+}
+
+#screen {
+    margin:10px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+#buttons {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin:10px;
+    gap: 10px;
+}
+
+button {
+    font-size: xx-large;
+}
