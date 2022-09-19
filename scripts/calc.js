@@ -32,6 +32,8 @@ function evalInput(str) {
     }
 }
 
+const screen = document.querySelector("#screen"); 
+
 function buttonPress(id) {
     switch (id) {
         case "zero":
@@ -80,10 +82,13 @@ function buttonPress(id) {
             input.push(".");
             break;
         case "equals":
-            input.push("=");
+            console.log(evalInput(input.join("")));
+            input = [];
             break;  
     }
-    console.log(input);
+    
+    screen.textContent = input.join("");
+
 }
 
 const oneBtn = document.querySelector("#one");
