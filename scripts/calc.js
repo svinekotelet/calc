@@ -11,8 +11,8 @@ function evalInput(str) {
     operRegex = /\+|\-|\*|\//;
     const operIndex = str.search(operRegex);
     const oper = str[operIndex];
-    const firstNum = parseInt(str.split('').slice(0,operIndex).join(''));
-    const secondNum = parseInt(str.split('').slice(operIndex + 1).join(''));
+    const firstNum = parseInt(str.split('').slice(0,operIndex).join(''), 10);
+    const secondNum = parseInt(str.split('').slice(operIndex + 1).join(''), 10);
 
     switch (oper) {
         case "+":
@@ -85,6 +85,12 @@ function buttonPress(id) {
             console.log(evalInput(input.join("")));
             input = [];
             break;  
+        case "clear": 
+            input = [];
+            break;
+        case "delete":
+            input.pop();
+            break;
     }
     
     screen.textContent = input.join("");
@@ -138,3 +144,9 @@ dotBtn.addEventListener("click", () => buttonPress("dot"));
 
 const equalsBtn = document.querySelector("#equals");
 equalsBtn.addEventListener("click", () => buttonPress("equals"));
+
+const clearBtn = document.querySelector("#clear");
+clearBtn.addEventListener("click", () => buttonPress("clear"));
+
+const deleteBtn = document.querySelector("#delete");
+deleteBtn.addEventListener("click", () => buttonPress("delete"));
