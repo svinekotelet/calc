@@ -8,23 +8,23 @@ const operate = (x,y,oper) => oper(x,y);
 let input = [];
 
 function evalInput(str) {
-    operRegex = /\+|\-|\*|\//;
+    operRegex = /\u002B|\u2212|\u00D7|\u00F7/;
     const operIndex = str.search(operRegex);
     const oper = str[operIndex];
     const firstNum = parseInt(str.split('').slice(0,operIndex).join(''), 10);
     const secondNum = parseInt(str.split('').slice(operIndex + 1).join(''), 10);
 
     switch (oper) {
-        case "+":
+        case "\u002B":
             return operate(firstNum, secondNum, add);
             break;
-        case "-":
+        case "\u2212":
             return operate(firstNum, secondNum, sub);
             break;
-        case "*":
+        case "\u00D7":
             return operate(firstNum, secondNum, mult);
             break;
-        case "/":
+        case "\u00F7":
             return operate(firstNum, secondNum, div);
             break; 
         default:
@@ -67,21 +67,22 @@ function buttonPress(id) {
             input.push("9");
             break;
         case "plus":
-            input.push("+");
+            input.push("\u002B");
             break;
         case "minus":
-            input.push("-");
+            input.push("\u2212");
             break;
         case "times":
-            input.push("*");
+            input.push("\u00D7");
             break;
         case "divide":
-            input.push("/");
+            input.push("\u00F7");
             break;
         case "dot":
             input.push(".");
             break;
         case "equals":
+            input.push("\u003D");
             console.log(evalInput(input.join("")));
             input = [];
             break;  
