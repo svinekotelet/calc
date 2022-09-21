@@ -32,7 +32,8 @@ function evalInput(str) {
     }
 }
 
-const screen = document.querySelector("#screen"); 
+const topScreen = document.querySelector("#topScreen"); 
+const bottomScreen = document.querySelector("#bottomScreen"); 
 
 function buttonPress(id) {
     switch (id) {
@@ -94,7 +95,7 @@ function buttonPress(id) {
             break;
     }
     
-    screen.textContent = input.join("");
+    bottomScreen.textContent = input.join("");
 
 }
 

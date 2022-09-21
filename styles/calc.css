@@ -18,6 +18,26 @@
     border-style: solid;
     border-width: 1px;
     text-align: right;
+    font-family: 'Orbitron', sans-serif;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    gap: 10px;
+    position: relative;
+}
+
+#topScreen {
+    font-size: xx-large;
+    grid-row: 1;
+    padding: 10px;
+}
+
+#bottomScreen {
+    font-size: 50px;
+    grid-row: 2;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
 }
 
 #buttons {
