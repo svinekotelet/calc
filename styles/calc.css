@@ -11,6 +11,7 @@
     width: 500px;
     border-style: solid;
     border-width: 2px;
+    background-color: lightgray;
 }
 
 #screen {
@@ -23,6 +24,7 @@
     grid-template-rows: 1fr 2fr;
     gap: 10px;
     position: relative;
+    background-color: white;
 }
 
 #topScreen {
@@ -61,4 +63,24 @@
 
 button {
     font-size: xx-large;
+}
+
+#dot,
+#delete {
+    background-color: darkgray;
+}
+
+#plus,
+#minus,
+#times,
+#divide {
+    background-color:#9dc3e7
+}
+
+#equals {
+    background-color:  #fb9606;
+}
+
+#clear {
+    background-color: #fb9606;
 }
