@@ -5,7 +5,8 @@ const div = (x,y) => x / y;
 
 const operate = (x,y,oper) => oper(x,y);
 
-let input = [];
+let topInput = [];
+let botInput = []; 
 
 function evalInput(str) {
     operRegex = /\u002B|\u2212|\u00D7|\u00F7/;
@@ -38,64 +39,69 @@ const bottomScreen = document.querySelector("#bottomScreen");
 function buttonPress(id) {
     switch (id) {
         case "zero":
-            input.push("0");
+            botInput.push("0");
             break;
         case "one":
-            input.push("1");
+            botInput.push("1");
             break;
         case "two":
-            input.push("2");
+            botInput.push("2");
             break;
         case "three":
-            input.push("3");
+            botInput.push("3");
             break;
         case "four":
-            input.push("4");
+            botInput.push("4");
             break;
         case "five":
-            input.push("5");
+            botInput.push("5");
             break;
         case "six":
-            input.push("6");
+            botInput.push("6");
             break;
         case "seven":
-            input.push("7");
+            botInput.push("7");
             break;
         case "eight":
-            input.push("8");
+            botInput.push("8");
             break;
         case "nine":
-            input.push("9");
+            botInput.push("9");
             break;
         case "plus":
-            input.push("\u002B");
+            botInput.push("\u002B");
             break;
         case "minus":
-            input.push("\u2212");
+            botInput.push("\u2212");
             break;
         case "times":
-            input.push("\u00D7");
+            botInput.push("\u00D7");
             break;
         case "divide":
-            input.push("\u00F7");
+            botInput.push("\u00F7");
             break;
         case "dot":
-            input.push(".");
+            botInput.push(".");
             break;
         case "equals":
-            input.push("\u003D");
-            console.log(evalInput(input.join("")));
-            input = [];
+            botInput.push("\u003D");
+            topInput = botInput;
+            topScreen.textContent = topInput.join('');
+            bottomScreen.textContent = evalInput(botInput.join(""));
+            botInput = [];
+            return;
             break;  
         case "clear": 
-            input = [];
+            topInput = [];
+            topScreen.textContent = topInput.join("");
+            botInput = [];
             break;
         case "delete":
-            input.pop();
+            botInput.pop();
             break;
     }
     
-    bottomScreen.textContent = input.join("");
+    bottomScreen.textContent = botInput.join("");
 
 }
 

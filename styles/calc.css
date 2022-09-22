@@ -26,13 +26,16 @@
 }
 
 #topScreen {
-    font-size: xx-large;
+    font-size: x-large;
     grid-row: 1;
     padding: 10px;
+    position: absolute;
+    top: 0;
+    right: 0; 
 }
 
 #bottomScreen {
-    font-size: 50px;
+    font-size: 40px;
     grid-row: 2;
     position: absolute;
     bottom: 0;
