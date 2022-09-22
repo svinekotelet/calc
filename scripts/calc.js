@@ -4,12 +4,12 @@ const mult = (x,y) => x * y;
 const div = (x,y) => x / y;
 
 const operate = (x,y,oper) => oper(x,y);
+const operRegex = /\u002B|\u2212|\u00D7|\u00F7/;
 
 let topInput = [];
 let botInput = []; 
 
 function evalInput(str) {
-    operRegex = /\u002B|\u2212|\u00D7|\u00F7/;
     const operIndex = str.search(operRegex);
     const oper = str[operIndex];
     const firstNum = parseInt(str.split('').slice(0,operIndex).join(''), 10);
@@ -69,15 +69,47 @@ function buttonPress(id) {
             botInput.push("9");
             break;
         case "plus":
+            if (botInput.includes("\u002B") || botInput.includes("\u2212") || botInput.includes("\u00D7") || botInput.includes("\u00F7")) {
+                botInput.push("\u003D");
+                topInput = botInput;
+                topScreen.textContent = topInput.join('');
+                let evaluation = evalInput(botInput.join(''));
+                botInput = [];
+                botInput.push(evaluation);
+            }
             botInput.push("\u002B");
             break;
         case "minus":
+            if (botInput.includes("\u002B") || botInput.includes("\u2212") || botInput.includes("\u00D7") || botInput.includes("\u00F7")) {
+                botInput.push("\u003D");
+                topInput = botInput;
+                topScreen.textContent = topInput.join('');
+                let evaluation = evalInput(botInput.join(''));
+                botInput = [];
+                botInput.push(evaluation);
+            }
             botInput.push("\u2212");
             break;
         case "times":
+            if (botInput.includes("\u002B") || botInput.includes("\u2212") || botInput.includes("\u00D7") || botInput.includes("\u00F7")) {
+                botInput.push("\u003D");
+                topInput = botInput;
+                topScreen.textContent = topInput.join('');
+                let evaluation = evalInput(botInput.join(''));
+                botInput = [];
+                botInput.push(evaluation);
+            }
             botInput.push("\u00D7");
             break;
         case "divide":
+            if (botInput.includes("\u002B") || botInput.includes("\u2212") || botInput.includes("\u00D7") || botInput.includes("\u00F7")) {
+                botInput.push("\u003D");
+                topInput = botInput;
+                topScreen.textContent = topInput.join('');
+                let evaluation = evalInput(botInput.join(''));
+                botInput = [];
+                botInput.push(evaluation);
+            }
             botInput.push("\u00F7");
             break;
         case "dot":
@@ -87,9 +119,9 @@ function buttonPress(id) {
             botInput.push("\u003D");
             topInput = botInput;
             topScreen.textContent = topInput.join('');
-            bottomScreen.textContent = evalInput(botInput.join(""));
+            let evaluation = evalInput(botInput.join(''));
             botInput = [];
-            return;
+            botInput.push(evaluation);
             break;  
         case "clear": 
             topInput = [];
