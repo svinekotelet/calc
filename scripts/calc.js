@@ -8,12 +8,13 @@ const operRegex = /\u002B|\u2212|\u00D7|\u00F7/;
 
 let topInput = [];
 let botInput = []; 
+let evaluated = false;
 
 function evalInput(str) {
     const operIndex = str.search(operRegex);
     const oper = str[operIndex];
-    const firstNum = parseInt(str.split('').slice(0,operIndex).join(''), 10);
-    const secondNum = parseInt(str.split('').slice(operIndex + 1).join(''), 10);
+    const firstNum = parseFloat(str.split('').slice(0,operIndex).join(''), 10);
+    const secondNum = parseFloat(str.split('').slice(operIndex + 1).join(''), 10);
 
     switch (oper) {
         case "\u002B":
@@ -39,36 +40,97 @@ const bottomScreen = document.querySelector("#bottomScreen");
 function buttonPress(id) {
     switch (id) {
         case "zero":
+            if (evaluated) {
+                topInput = [];
+                topScreen.textContent = topInput.join("");
+                botInput = [];
+                evaluated = false;
+            }
             botInput.push("0");
             break;
         case "one":
+            if (evaluated) {
+                topInput = [];
+                topScreen.textContent = topInput.join("");
+                botInput = [];
+                evaluated = false;
+            }
             botInput.push("1");
             break;
         case "two":
+            if (evaluated) {
+                topInput = [];
+                topScreen.textContent = topInput.join("");
+                botInput = [];
+                evaluated = false;
+            }
             botInput.push("2");
             break;
         case "three":
+            if (evaluated) {
+                topInput = [];
+                topScreen.textContent = topInput.join("");
+                botInput = [];
+                evaluated = false;
+            }
             botInput.push("3");
             break;
         case "four":
+            if (evaluated) {
+                topInput = [];
+                topScreen.textContent = topInput.join("");
+                botInput = [];
+                evaluated = false;
+            }
             botInput.push("4");
             break;
         case "five":
+            if (evaluated) {
+                topInput = [];
+                topScreen.textContent = topInput.join("");
+                botInput = [];
+                evaluated = false;
+            }
             botInput.push("5");
             break;
         case "six":
+            if (evaluated) {
+                topInput = [];
+                topScreen.textContent = topInput.join("");
+                botInput = [];
+                evaluated = false;
+            }
             botInput.push("6");
             break;
         case "seven":
+            if (evaluated) {
+                topInput = [];
+                topScreen.textContent = topInput.join("");
+                botInput = [];
+                evaluated = false;
+            }
             botInput.push("7");
             break;
         case "eight":
+            if (evaluated) {
+                topInput = [];
+                topScreen.textContent = topInput.join("");
+                botInput = [];
+                evaluated = false;
+            }
             botInput.push("8");
             break;
         case "nine":
+            if (evaluated) {
+                topInput = [];
+                topScreen.textContent = topInput.join("");
+                botInput = [];
+                evaluated = false;
+            }
             botInput.push("9");
             break;
         case "plus":
+            evaluated = false;
             if (botInput[botInput.length - 1] == "\u002B" || botInput[botInput.length - 1] == "\u2212" || botInput[botInput.length - 1] == "\u00D7" || botInput[botInput.length - 1] == "\u00F7") {
                 return;
             }
@@ -79,10 +141,12 @@ function buttonPress(id) {
                 let evaluation = evalInput(botInput.join(''));
                 botInput = [];
                 botInput.push(evaluation);
+                evaluated = true;
             }
             botInput.push("\u002B");
             break;
         case "minus":
+            evaluated = false;
             if (botInput[botInput.length - 1] == "\u002B" || botInput[botInput.length - 1] == "\u2212" || botInput[botInput.length - 1] == "\u00D7" || botInput[botInput.length - 1] == "\u00F7") {
                 return;
             }
@@ -93,10 +157,12 @@ function buttonPress(id) {
                 let evaluation = evalInput(botInput.join(''));
                 botInput = [];
                 botInput.push(evaluation);
+                evaluated = true;
             }
             botInput.push("\u2212");
             break;
         case "times":
+            evaluated = false;
             if (botInput[botInput.length - 1] == "\u002B" || botInput[botInput.length - 1] == "\u2212" || botInput[botInput.length - 1] == "\u00D7" || botInput[botInput.length - 1] == "\u00F7") {
                 return;
             }
@@ -107,10 +173,12 @@ function buttonPress(id) {
                 let evaluation = evalInput(botInput.join(''));
                 botInput = [];
                 botInput.push(evaluation);
+                evaluated = true;
             }
             botInput.push("\u00D7");
             break;
         case "divide":
+            evaluated = false;
             if (botInput[botInput.length - 1] == "\u002B" || botInput[botInput.length - 1] == "\u2212" || botInput[botInput.length - 1] == "\u00D7" || botInput[botInput.length - 1] == "\u00F7") {
                 return;
             }
@@ -121,6 +189,7 @@ function buttonPress(id) {
                 let evaluation = evalInput(botInput.join(''));
                 botInput = [];
                 botInput.push(evaluation);
+                evaluated = true;
             }
             botInput.push("\u00F7");
             break;
@@ -134,6 +203,7 @@ function buttonPress(id) {
             let evaluation = evalInput(botInput.join(''));
             botInput = [];
             botInput.push(evaluation);
+            evaluated = true;
             break;  
         case "clear": 
             topInput = [];
