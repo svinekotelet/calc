@@ -69,6 +69,9 @@ function buttonPress(id) {
             botInput.push("9");
             break;
         case "plus":
+            if (botInput[botInput.length - 1] == "\u002B" || botInput[botInput.length - 1] == "\u2212" || botInput[botInput.length - 1] == "\u00D7" || botInput[botInput.length - 1] == "\u00F7") {
+                return;
+            }
             if (botInput.includes("\u002B") || botInput.includes("\u2212") || botInput.includes("\u00D7") || botInput.includes("\u00F7")) {
                 botInput.push("\u003D");
                 topInput = botInput;
@@ -80,6 +83,9 @@ function buttonPress(id) {
             botInput.push("\u002B");
             break;
         case "minus":
+            if (botInput[botInput.length - 1] == "\u002B" || botInput[botInput.length - 1] == "\u2212" || botInput[botInput.length - 1] == "\u00D7" || botInput[botInput.length - 1] == "\u00F7") {
+                return;
+            }
             if (botInput.includes("\u002B") || botInput.includes("\u2212") || botInput.includes("\u00D7") || botInput.includes("\u00F7")) {
                 botInput.push("\u003D");
                 topInput = botInput;
@@ -91,6 +97,9 @@ function buttonPress(id) {
             botInput.push("\u2212");
             break;
         case "times":
+            if (botInput[botInput.length - 1] == "\u002B" || botInput[botInput.length - 1] == "\u2212" || botInput[botInput.length - 1] == "\u00D7" || botInput[botInput.length - 1] == "\u00F7") {
+                return;
+            }
             if (botInput.includes("\u002B") || botInput.includes("\u2212") || botInput.includes("\u00D7") || botInput.includes("\u00F7")) {
                 botInput.push("\u003D");
                 topInput = botInput;
@@ -102,6 +111,9 @@ function buttonPress(id) {
             botInput.push("\u00D7");
             break;
         case "divide":
+            if (botInput[botInput.length - 1] == "\u002B" || botInput[botInput.length - 1] == "\u2212" || botInput[botInput.length - 1] == "\u00D7" || botInput[botInput.length - 1] == "\u00F7") {
+                return;
+            }
             if (botInput.includes("\u002B") || botInput.includes("\u2212") || botInput.includes("\u00D7") || botInput.includes("\u00F7")) {
                 botInput.push("\u003D");
                 topInput = botInput;
@@ -136,6 +148,10 @@ function buttonPress(id) {
     bottomScreen.textContent = botInput.join("");
 
 }
+
+
+
+
 
 const oneBtn = document.querySelector("#one");
 oneBtn.addEventListener("click", () => buttonPress("one"));
