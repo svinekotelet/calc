@@ -145,7 +145,14 @@ function buttonPress(id) {
             break;
     }
     
-    bottomScreen.textContent = botInput.join("");
+    let output = botInput.join("");
+    if (botInput.length > 13) {
+        output = "OVERFLOW";
+    }
+    if (output.length > 13) {
+        output = output.substring(0,13);
+    }
+    bottomScreen.textContent = output;
 
 }
 
